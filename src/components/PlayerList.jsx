@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function PlayerList({ players, teams }) {
   let [selectedPlayerId, setSelectedPlayerId] = useState(null);
 
-  function handleClick() {
-    setSelectedPlayerId(null);
+  let navigate = useNavigate();
+
+  function handleClick(id) {
+    // setSelectedPlayerId(id);
+    let path = `/players/${id}`;
+    navigate(path);
   }
 
   function findTeam(teamId) {
-    console.log(teamId);
-    console.log(teams);
     let team = teams.find((t) => t.id === teamId);
     // console.log(team.name);
     return "hello";
@@ -40,7 +43,12 @@ function PlayerList({ players, teams }) {
             </tr>
             {players.map((player) => {
               return (
-                <tr key={player.id} onClick={handleClick}>
+                <tr
+                  key={player.id}
+                  onClick={() => {
+                    handleClick(player.id);
+                  }}
+                >
                   <td>
                     <img
                       className="small"
