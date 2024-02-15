@@ -87,7 +87,13 @@ table td {
 }
 
 .small {
-  width: 8%;
+  max-width: 18%;
+  max-height: 18%;
   margin: 0.1rem;
   padding: 0.2rem;
+}
+
+table th {
+  margin-left: 0.1rem;
+  padding: 10px;
 }
