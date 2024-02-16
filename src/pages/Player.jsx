@@ -4,7 +4,7 @@ import PlayerCard from "../components/PlayerCard";
 
 function Player() {
   let { id } = useParams();
-  let [player, setPlayer] = useState([]);
+  let [playerData, setPlayerData] = useState(null);
   useEffect(() => {
     async function fetchPlayer() {
       try {
@@ -12,20 +12,27 @@ function Player() {
           `https://fsa-puppy-bowl.herokuapp.com/api/COHORT-NAME/players/${id}`
         );
         let result = await response.json();
-        console.log(result);
-        setPlayer([]);
+
+        if (result) {
+          console.log(result.data);
+          setPlayerData(result.data);
+        }
       } catch (error) {
         console.error(error);
       }
     }
-    // fetchPlayer();
-  }, []);
+    fetchPlayer();
+  }, [id]);
 
   return (
     <>
-      <div>
-        <h2>The player</h2>
-      </div>
+      {playerData ? (
+        <div>
+          <PlayerCard playerData={playerData} />
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )}
     </>
   );
 }

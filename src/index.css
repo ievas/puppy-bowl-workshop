@@ -111,3 +111,39 @@ ol {
 /* .main-section {
   text-align: left;
 } */
+
+.player-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 1rem;
+  margin: 6rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.player-details {
+  flex: 1;
+}
+
+.player-img {
+  max-width: 30%;
+  /* height: auto; */
+}
+
+.player-info {
+  margin-top: 1rem;
+}
+
+.player-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.team,
+.breed,
+.status {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
