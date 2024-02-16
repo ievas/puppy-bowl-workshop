@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useActionData } from "react-router-dom";
 
 function Remove({ playerId }) {
   let [deleted, setDeleted] = useState(false);
+
   async function handleClick(id) {
     try {
       const response = await fetch(

@@ -1,25 +1,32 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function PlayerList({ players, teams }) {
-  let [selectedPlayerId, setSelectedPlayerId] = useState(null);
+function PlayerList({ players }) {
+  let [searchTerm, setSearchTerm] = useState("");
 
   let navigate = useNavigate();
 
   function handleClick(id) {
-    // setSelectedPlayerId(id);
     let path = `/players/${id}`;
     navigate(path);
   }
 
-  // function findTeam(teamId) {
-  //   let team = teams.find((t) => t.id === teamId);
-  //   // console.log(team.name);
-  //   return "hello";
-  // }
+  function handleChange(e) {
+    setSearchTerm(e.target.value);
+  }
+
+  let filteredPlayers = players.filter((player) => {
+    return player.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   return (
     <>
+      <input
+        type="text"
+        placeholder="Search..."
+        value={searchTerm}
+        onChange={handleChange}
+      ></input>
       <div style={{ overflowX: "auto" }}>
         <table width="50%">
           <thead>
@@ -41,7 +48,7 @@ function PlayerList({ players, teams }) {
                 <h2>Team</h2>
               </td>
             </tr>
-            {players.map((player) => {
+            {filteredPlayers.map((player) => {
               return (
                 <tr
                   key={player.id}

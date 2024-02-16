@@ -10,8 +10,26 @@ import Player from "./pages/Player";
 import AddPlayer from "./pages/AddPlayer";
 
 function App() {
-  let [selectedPlayerId, setSelectedPlayerId] = useState(null);
-  let [teams, setTeams] = useState([]);
+  // let [selectedPlayerId, setSelectedPlayerId] = useState(null);
+  // let [teams, setTeams] = useState([]);
+
+  let [players, setPlayers] = useState([]);
+
+  useEffect(() => {
+    async function fetchPlayers() {
+      try {
+        let response = await fetch(
+          "https://fsa-puppy-bowl.herokuapp.com/api/2308-acc-et-web-pt-a/players"
+        );
+        let result = await response.json();
+        // console.log(result);
+        setPlayers(result.data.players);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchPlayers();
+  }, []);
 
   // useEffect(() => {
   //   async function fetchTeams() {
@@ -33,7 +51,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <Navbar />
+        <Navbar players={players} />
         <div className="main-section">
           <Routes>
             <Route path="/" element={<Home />} />
