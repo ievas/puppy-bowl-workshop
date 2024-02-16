@@ -97,6 +97,10 @@ table td {
   padding: 0.2rem;
 }
 
+.player-info-name {
+  text-decoration: gray underline 0.05rem;
+}
+
 table th {
   margin-left: 0.1rem;
   padding: 10px;
@@ -128,7 +132,7 @@ ol {
 
 .player-img {
   max-width: 30%;
-  /* height: auto; */
+  height: auto;
 }
 
 .player-info {
@@ -146,4 +150,9 @@ ol {
   font-size: 1rem;
   color: #666;
   margin-bottom: 0.5rem;
+}
+
+input {
+  padding: 5px;
+  margin: 10px;
 }

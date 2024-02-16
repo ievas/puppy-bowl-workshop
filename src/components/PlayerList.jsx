@@ -49,7 +49,7 @@ function PlayerList({ players, teams }) {
                     handleClick(player.id);
                   }}
                 >
-                  <td>
+                  <td className="player-info-name">
                     <img
                       className="small"
                       src={player.imageUrl}
