@@ -28,7 +28,7 @@ function PlayerList({ players }) {
         onChange={handleChange}
       ></input>
       <div style={{ overflowX: "auto" }}>
-        <table width="50%">
+        <table width="65%">
           <thead>
             <tr>
               <th colSpan="3">
@@ -38,13 +38,13 @@ function PlayerList({ players }) {
           </thead>
           <tbody>
             <tr>
-              <td width="40%">
+              <td width="50%">
                 <h2>Name</h2>
               </td>
-              <td width="30%">
+              <td width="25%">
                 <h2>Status</h2>
               </td>
-              <td width="30%">
+              <td width="25%">
                 <h2>Team</h2>
               </td>
             </tr>
@@ -65,15 +65,7 @@ function PlayerList({ players }) {
                     {player.name[0].toUpperCase() + player.name.slice(1)}
                   </td>
                   <td>{player.status}</td>
-                  {player.id % 2 ? (
-                    <td>
-                      Fluff <span>&#9734;</span>
-                    </td>
-                  ) : (
-                    <td>
-                      Ruff <span>&#9733;</span>
-                    </td>
-                  )}
+                  {player.id % 2 ? <td>Fluff</td> : <td>Ruff</td>}
                 </tr>
               );
             })}
