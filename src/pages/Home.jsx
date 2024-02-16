@@ -3,7 +3,6 @@ import PlayerList from "../components/PlayerList";
 
 function Home() {
   let [players, setPlayers] = useState([]);
-  let [teams, setTeams] = useState([]);
 
   useEffect(() => {
     async function fetchPlayers() {
@@ -21,26 +20,10 @@ function Home() {
     fetchPlayers();
   }, []);
 
-  useEffect(() => {
-    async function fetchTeams() {
-      try {
-        let response = await fetch(
-          "https://fsa-puppy-bowl.herokuapp.com/api/2308-acc-et-web-pt-a/teams"
-        );
-        let result = await response.json();
-
-        setTeams(result.data.teams);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchTeams();
-  }, []);
-
   return (
     <>
       <h1>Puppy Bowl Roster</h1>
-      <PlayerList players={players} teams={teams} />;
+      <PlayerList players={players} />;
     </>
   );
 }

@@ -12,11 +12,11 @@ function PlayerList({ players, teams }) {
     navigate(path);
   }
 
-  function findTeam(teamId) {
-    let team = teams.find((t) => t.id === teamId);
-    // console.log(team.name);
-    return "hello";
-  }
+  // function findTeam(teamId) {
+  //   let team = teams.find((t) => t.id === teamId);
+  //   // console.log(team.name);
+  //   return "hello";
+  // }
 
   return (
     <>
@@ -58,7 +58,11 @@ function PlayerList({ players, teams }) {
                     {player.name[0].toUpperCase() + player.name.slice(1)}
                   </td>
                   <td>{player.status}</td>
-                  <td>{findTeam(player.teamId)}</td>
+                  {player.id % 2 ? (
+                    <td>Fluff &#11088;</td>
+                  ) : (
+                    <td>Ruff &#128054;</td>
+                  )}
                 </tr>
               );
             })}
