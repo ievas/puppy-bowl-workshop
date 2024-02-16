@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddPlayer() {
   let [name, setName] = useState("");
   let [imageUrl, setImageUrl] = useState("");
   let [breed, setBreed] = useState("");
-  // let [team, setTeam] = useState("");
+  let [success, setSuccess] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -29,7 +30,7 @@ function AddPlayer() {
       setName("");
       setImageUrl("");
       setBreed("");
-      // setTeam("");
+      setSuccess(true);
     } catch (error) {
       console.error(error);
     }
@@ -38,7 +39,7 @@ function AddPlayer() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h2>Add Puppy</h2>
+        <h2>Add a Player</h2>
         <label>
           Name: <input value={name} onChange={(e) => setName(e.target.value)} />
         </label>
@@ -62,6 +63,8 @@ function AddPlayer() {
 
         <button>Submit</button>
       </form>
+
+      {success && <div id="success">Player added succesfully!</div>}
     </>
   );
 }

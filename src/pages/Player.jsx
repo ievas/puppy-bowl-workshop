@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PlayerCard from "../components/PlayerCard";
+import Remove from "../components/Remove";
 
 function Player() {
   let { id } = useParams();
@@ -29,6 +30,7 @@ function Player() {
       {playerData ? (
         <div>
           <PlayerCard playerData={playerData} />
+          <Remove playerId={playerData.player.id} />
         </div>
       ) : (
         <div>Loading...</div>
