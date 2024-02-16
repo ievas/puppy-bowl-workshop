@@ -67,7 +67,7 @@ function PlayerList({ players }) {
                   <td>{player.status}</td>
                   {player.id % 2 ? (
                     <td>
-                      Fluff <span>&#42;</span>
+                      Fluff <span>&#9734;</span>
                     </td>
                   ) : (
                     <td>
