@@ -38,13 +38,13 @@ function PlayerList({ players }) {
           </thead>
           <tbody>
             <tr>
-              <td width="50%">
+              <td style={{ borderLeft: "white" }} width="50%">
                 <h2>Name</h2>
               </td>
               <td width="25%">
                 <h2>Status</h2>
               </td>
-              <td width="25%">
+              <td style={{ borderRight: "white" }} width="25%">
                 <h2>Team</h2>
               </td>
             </tr>
@@ -56,7 +56,10 @@ function PlayerList({ players }) {
                     handleClick(player.id);
                   }}
                 >
-                  <td className="player-info-name">
+                  <td
+                    style={{ borderLeft: "white" }}
+                    className="player-info-name"
+                  >
                     <img
                       className="small"
                       src={player.imageUrl}
@@ -65,7 +68,11 @@ function PlayerList({ players }) {
                     {player.name[0].toUpperCase() + player.name.slice(1)}
                   </td>
                   <td>{player.status}</td>
-                  {player.id % 2 ? <td>Fluff</td> : <td>Ruff</td>}
+                  {player.id % 2 ? (
+                    <td style={{ borderRight: "white" }}>Fluff</td>
+                  ) : (
+                    <td style={{ borderRight: "white" }}>Ruff</td>
+                  )}
                 </tr>
               );
             })}

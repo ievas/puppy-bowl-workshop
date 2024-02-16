@@ -92,14 +92,14 @@ button:focus-visible {
 table {
   margin-left: auto;
   margin-right: auto;
-  border: solid 0.1rem black;
+  /* border: solid 0.5px rgb(196, 185, 185); */
   border-collapse: collapse;
   font-size: 1.5rem;
   text-align: left;
 }
 
 table td {
-  border: 1px solid black;
+  border: 0.5px solid rgb(196, 185, 185);
   padding: 10px;
 }
 
@@ -117,6 +117,10 @@ table td {
 table th {
   margin-left: 0.1rem;
   padding: 10px;
+}
+
+.sides {
+  border-right: white;
 }
 
 ol {
